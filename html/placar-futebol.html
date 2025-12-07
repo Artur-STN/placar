@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placar de Futebol</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body onload="valueInput()">
+
+    <section class="placar">
+
+        <div class="times timeAzul">
+
+            <input id="timeAzul" type="number">
+
+            <div class="ButtonsAddRemove">
+
+                <button onclick="addPoint('timeAzul')" class="addPoint">+ 1</button>
+                <button onclick="removePoint('timeAzul')" class="removePoint">- 1</button>
+
+            </div>
+
+        </div>
+
+        <div class="times timeVermelho">
+
+            <input id="timeVermelho" type="number">
+
+            <div class="ButtonsAddRemove">
+
+                <button onclick="addPoint('timeVermelho')" class="addPoint">+ 1</button>
+                <button onclick="removePoint('timeVermelho')" class="removePoint">- 1</button>
+
+            </div>
+            
+        </div>
+
+    </section>
+
+    <a href="../index.html" class="buttonVoltarIndex">VOLTAR</a>
+
+    <script src="../js/script.js"></script>
+    
+</body>
+</html>

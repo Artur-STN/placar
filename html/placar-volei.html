@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placar de Volei</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/placar-volei.css">
+
+</head>
+
+<body onload="valueInput()">
+
+    <section class="placar">
+
+        <div class="times timeAzul">
+
+            <input id="timeAzul" type="number" readonly>
+
+            <div class="ButtonsAddRemove">
+
+                <button onclick="addPoint('timeAzul','setsAzul','timeVermelho')">+1</button>
+                <button onclick="removePoint('timeAzul')" class="buttonRemovePoint">- 1</button>
+
+            </div>
+
+            <input type="number" name="setsAzul" id="setsAzul" readonly>
+
+        </div>
+
+        <div class="times timeVermelho">
+
+            <input id="timeVermelho" type="number" readonly>
+
+            <div class="ButtonsAddRemove">
+
+                <button onclick="addPoint('timeVermelho','setsVermelho','timeAzul')">+1</button>
+                <button onclick="removePoint('timeVermelho')" class="buttonRemovePoint">- 1</button>
+
+            </div>
+
+            <input type="number" name="setsVermelho" id="setsVermelho" readonly>
+            
+        </div>
+
+    </section>
+
+    <a href="../index.html" class="buttonVoltarIndex">VOLTAR</a>
+
+    <script src="../js/script.js"></script>
+    
+</body>
+</html>
