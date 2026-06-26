@@ -1,0 +1,93 @@
+/* ==========================================================================
+   1. ESTILIZAÇÃO E IDENTIDADE DO CABEÇALHO DO FUTEBOL
+   ========================================================================== */
+.placar-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.placar-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   2. CONTROLE DO TEMPO DA PARTIDA (RADIO BUTTONS ESTILIZADOS)
+   ========================================================================== */
+.controle-tempo {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.35rem;
+    border-radius: 30px;
+    border: 1px solid var(--card-border);
+}
+
+.radio-group {
+    display: flex;
+    gap: 0.25rem;
+}
+
+/* Esconde o círculo padrão do input radio nativo */
+.radio-group input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Transforma as <label> associadas em botões modernos */
+.radio-group label {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+/* Efeito de Hover ao passar o mouse */
+.radio-group label:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* Estado Ativo/Selecionado (Quando o input de trás estiver marcado) */
+.radio-group input[type="radio"]:checked + label {
+    background: var(--color-success); /* Verde gramado para combinar com futebol */
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Elemento de foco para acessibilidade por teclado */
+.radio-group input[type="radio"]:focus-visible + label {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   3. INVERSÃO DE LADOS NO SEGUNDO TEMPO
+   ========================================================================== */
+
+/* Inverte a ordem horizontal dos times (Mandante vai para a direita, Visitante para a esquerda) */
+.painel-confronto.inverter-lados {
+    flex-direction: row-reverse;
+}
+
+/* Ajuste para telas de celular: como os cards ficam um embaixo do outro no mobile, 
+   o row-reverse vira column-reverse para que a inversão funcione verticalmente também */
+@media (max-width: 768px) {
+    .painel-confronto.inverter-lados {
+        flex-direction: column-reverse;
+    }
+}

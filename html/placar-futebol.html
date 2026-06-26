@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placar de Futebol</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/placar-futebol.css">
+</head>
+<body onload="carregarCores(); inicializarPlacar();">
+
+    <header class="placar-header">
+        <h1>Futebol</h1>
+        
+        <section class="controle-tempo" aria-label="Tempo da Partida">
+            <div class="radio-group">
+                <input type="radio" id="tempo1" name="periodo" value="1T" checked onclick="mudarTempo('1T')">
+                <label for="tempo1">1º Tempo</label>
+
+                <input type="radio" id="tempo2" name="periodo" value="2T" onclick="mudarTempo('2T')">
+                <label for="tempo2">2º Tempo</label>
+            </div>
+        </section>
+    </header>
+
+    <main class="container-placar">
+        <section class="painel-confronto" aria-label="Painel de Pontuação">
+            
+            <article class="time-card time-mandante">
+                <header class="time-header">
+                    <h2>Mandante</h2>
+                </header>
+                
+                <div class="pontuacao-principal">
+                    <output id="pontosMandante" class="display-pontos" aria-live="polite">0</output>
+                </div>
+
+                <div class="controles-pontos">
+                    <button type="button" class="btn-ponto btn-adicionar" onclick="adicionarGol('mandante')" aria-label="Adicionar gol ao Mandante">+1</button>
+                    <button type="button" class="btn-ponto btn-remover" onclick="removerGol('mandante')" aria-label="Remover gol do Mandante">-1</button>
+                </div>
+            </article>
+
+            <div class="divisor-central">
+                <span>X</span>
+            </div>
+
+            <article class="time-card time-visitante">
+                <header class="time-header">
+                    <h2>Visitante</h2>
+                </header>
+                
+                <div class="pontuacao-principal">
+                    <output id="pontosVisitante" class="display-pontos" aria-live="polite">0</output>
+                </div>
+
+                <div class="controles-pontos">
+                    <button type="button" class="btn-ponto btn-adicionar" onclick="adicionarGol('visitante')" aria-label="Adicionar gol ao Visitante">+1</button>
+                    <button type="button" class="btn-ponto btn-remover" onclick="removerGol('visitante')" aria-label="Remover gol do Visitante">-1</button>
+                </div>
+            </article>
+
+        </section>
+
+        <section class="controles-globais">
+            <button type="button" class="btn-reiniciar" onclick="reiniciarPartida()">Zerar Placar</button>
+            <a href="../index.html" class="btn-voltar">Voltar ao Menu</a>
+        </section>
+    </main>
+
+    <script src="../js/config-cores.js"></script>
+    <script src="../js/placar-futebol.js"></script>
+</body>
+</html>

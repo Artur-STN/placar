@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placar de Vôlei</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/placar-volei.css">
+</head>
+<body onload="carregarCores(); inicializarPlacar();">
+
+    <header class="placar-header">
+        <h1>Voleibol</h1>
+        <p class="status-partida">Partida em Andamento</p>
+    </header>
+
+    <main class="container-placar">
+        <section class="painel-confronto" id="painelVolei" aria-label="Painel de Pontuação">
+            
+            <article class="time-card time-mandante">
+                <header class="time-header">
+                    <h2>Mandante</h2>
+                </header>
+                
+                <div class="pontuacao-principal">
+                    <output id="pontosMandante" class="display-pontos" aria-live="polite">00</output>
+                </div>
+
+                <div class="controles-pontos">
+                    <button type="button" class="btn-ponto btn-adicionar" onclick="adicionarPonto('mandante')">+1</button>
+                    <button type="button" class="btn-ponto btn-remover" onclick="removerPonto('mandante')">-1</button>
+                </div>
+            </article>
+
+            <section class="historico-sets" aria-label="Placar dos Sets">
+                <div class="set-box" id="box-set1">
+                    <span class="set-label">1º Set</span>
+                    <div class="set-valores">
+                        <span id="corSet1-E" class="dot-cor-set"></span>
+                        <span id="set1-E">0</span> - <span id="set1-D">0</span>
+                        <span id="corSet1-D" class="dot-cor-set"></span>
+                    </div>
+                </div>
+                <div class="set-box" id="box-set2">
+                    <span class="set-label">2º Set</span>
+                    <div class="set-valores">
+                        <span id="corSet2-E" class="dot-cor-set"></span>
+                        <span id="set2-E">0</span> - <span id="set2-D">0</span>
+                        <span id="corSet2-D" class="dot-cor-set"></span>
+                    </div>
+                </div>
+                <div class="set-box" id="box-set3">
+                    <span class="set-label">3º Set</span>
+                    <div class="set-valores">
+                        <span id="corSet3-E" class="dot-cor-set"></span>
+                        <span id="set3-E">0</span> - <span id="set3-D">0</span>
+                        <span id="corSet3-D" class="dot-cor-set"></span>
+                    </div>
+                </div>
+            </section>
+
+            <article class="time-card time-visitante">
+                <header class="time-header">
+                    <h2>Visitante</h2>
+                </header>
+                
+                <div class="pontuacao-principal">
+                    <output id="pontosVisitante" class="display-pontos" aria-live="polite">00</output>
+                </div>
+
+                <div class="controles-pontos">
+                    <button type="button" class="btn-ponto btn-adicionar" onclick="adicionarPonto('visitante')">+1</button>
+                    <button type="button" class="btn-ponto btn-remover" onclick="removerPonto('visitante')">-1</button>
+                </div>
+            </article>
+
+        </section>
+
+        <section class="controles-globais">
+            <button type="button" class="btn-reiniciar" onclick="reiniciarPartida()">Resetar Jogo</button>
+            <a href="../index.html" class="btn-voltar">Voltar ao Menu</a>
+        </section>
+    </main>
+
+    <script src="../js/config-cores.js"></script>
+    <script src="../js/placar-volei.js"></script>
+</body>
+</html>

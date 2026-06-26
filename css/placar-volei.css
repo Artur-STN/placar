@@ -1,0 +1,168 @@
+/* ==========================================================================
+   1. ESTILIZAÇÃO E IDENTIDADE DO CABEÇALHO DO VÔLEI
+   ========================================================================== */
+.placar-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.placar-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+/* Container do Histórico de Sets (Fica no meio dos dois times) */
+.historico-sets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 140px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cada caixinha de Set individual */
+.set-box {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+/* Destaca o set que está ativo no momento (Adicionado via JS) */
+.set-box.ativo {
+    border-color: var(--color-accent);
+    background: rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+}
+
+.set-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 0.15rem;
+}
+
+/* Container dos valores dentro da caixinha */
+.set-valores {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Transforma o span em um círculo semântico customizado */
+.dot-cor-set {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: transparent; /* Cor injetada dinamicamente pelo JS */
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 2px 4px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+    transition: background-color var(--transition-fast);
+}
+
+/* ==========================================================================
+   INVERSÃO DE LADOS (Igual ao Futebol)
+   ========================================================================== */
+.painel-confronto.inverter-lados {
+    flex-direction: row-reverse;
+}
+
+/* No mobile, as caixinhas de set ficam entre os dois times empilhados */
+@media (max-width: 768px) {
+    .painel-confronto {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .historico-sets {
+        flex-direction: row; /* Caixinhas deitadas lado a lado no celular */
+        width: 100%;
+    }
+
+    .painel-confronto.inverter-lados {
+        flex-direction: column-reverse;
+    }
+}
+
+/* ==========================================================================
+   2. CONTADOR DE SETS (ESPECÍFICO DO VÔLEI)
+   ========================================================================== */
+.sets-container {
+    width: 100%;
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1); /* Linha divisória sutil */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Rótulo "SETS" */
+.label-sets {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+}
+
+/* Número do Set Atual */
+.display-sets {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 0.25rem 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Mini botões de controle de Sets (+ e -) */
+.controles-sets {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.btn-set {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 700;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.btn-set:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Ajuste de proximidade para o vôlei (Garante o alinhamento vertical perfeito) */
+.time-card {
+    justify-content: space-between;
+}

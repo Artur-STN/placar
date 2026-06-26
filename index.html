@@ -2,32 +2,66 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placar de Volei</title>
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/index.css">
-
-</head>
-
-<body>
-
-    <section class="selecionarModalidade">
-
-        <div class="divSelecao Futebol">
-
-            <p><a href="html/placar-futebol.html">PLACAR FUTEBOL</a></p>
-
-        </div>
-
-        <div class="divSelecao Volei">
-
-            <p><a href="html/placar-volei.html">PLACAR VÔLEI</a></p>
-
-        </div>
-
-    </section>
+    <title>Placar Esportivo Multimodalidades</title>
     
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body onload="carregarCores()">
+
+    <header class="main-header">
+        <h1>Placar Esportivo</h1>
+        <p>Selecione a modalidade para iniciar a contagem</p>
+    </header>
+
+    <main>
+        <nav class="modalidades-nav" aria-label="Seleção de Modalidades">
+            <ul class="modalidades-lista">
+                <li class="modalidade-item futebol">
+                    <a href="html/placar-futebol.html" class="modalidade-link">
+                        <span class="icon">⚽</span>
+                        <span class="label">Placar Futebol</span>
+                    </a>
+                </li>
+                <li class="modalidade-item volei">
+                    <a href="html/placar-volei.html" class="modalidade-link">
+                        <span class="icon">🏐</span>
+                        <span class="label">Placar Vôlei</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <section class="configuracoes-cores" aria-labelledby="titulo-config">
+            <h2 id="titulo-config">Personalizar Cores dos Times</h2>
+            
+            <form id="formCores" onsubmit="event.preventDefault(); salvarConfiguracoes();">
+    <div class="controle-texto">
+        <label for="nomeMandante">Nome do Mandante:</label>
+        <input type="text" id="nomeMandante" placeholder="Mandante" autocomplete="off">
+    </div>
+    
+    <div class="controle-cor">
+        <label for="colorMandante">Cor do Mandante (Casa):</label>
+        <input type="color" id="colorMandante" value="#ef4444">
+    </div>
+
+    <div class="controle-texto">
+        <label for="nomeVisitante">Nome do Visitante:</label>
+        <input type="text" id="nomeVisitante" placeholder="Visitante" autocomplete="off">
+    </div>
+
+    <div class="controle-cor">
+        <label for="colorVisitante">Cor do Visitante (Fora):</label>
+        <input type="color" id="colorVisitante" value="#3b82f6">
+    </div>
+
+    <button type="submit" class="btn-aplicar">Salvar Configurações</button>
+</form>
+        </section>
+    </main>
+
+    <script src="js/config-cores.js"></script>
 </body>
 </html>
