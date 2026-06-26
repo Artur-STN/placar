@@ -4,8 +4,8 @@
 
 /* Força apenas a página index a não ter rolagem */
 html, body {
-    overflow: hidden;
-    height: 100vh;
+    /* overflow: hidden; */
+    /* height: 100vh; */
 }
 
 main {
